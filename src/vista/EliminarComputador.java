@@ -479,7 +479,7 @@ public class EliminarComputador extends javax.swing.JFrame {
         if (textoMM.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "El computador no a sido buscado para ser eliminado", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (JOptionPane.showInternalConfirmDialog(null, "Confirmar borrado del computador") == 0) {
+            if (JOptionPane.showConfirmDialog(null, "Confirmar borrado del computador") == 0) {
                 String sql = new sqlsGuardado().sqlEliminar(comboPlacas.getSelectedItem().toString(), "PC");
                 String resultado = new BaseDatos().guardarInformacion(sql);
                 JOptionPane.showMessageDialog(null, resultado);
