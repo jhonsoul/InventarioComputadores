@@ -66,13 +66,13 @@ public class AgregarComputador extends javax.swing.JFrame {
         cajaDD = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        cajaOffice = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         cajaAntivirus = new javax.swing.JTextField();
         comboMarcaModelo = new javax.swing.JComboBox<>();
         comboProcesador = new javax.swing.JComboBox<>();
         comboSO = new javax.swing.JComboBox<>();
         comboTipo = new javax.swing.JComboBox<>();
+        cajaAplicaciones = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         cajaResponsable = new javax.swing.JTextField();
@@ -244,14 +244,7 @@ public class AgregarComputador extends javax.swing.JFrame {
         jLabel9.setText("Sistema operativo:");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("Office:");
-
-        cajaOffice.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        cajaOffice.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                cajaOfficeKeyTyped(evt);
-            }
-        });
+        jLabel10.setText("Aplicaciones");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Antivirus:");
@@ -271,11 +264,13 @@ public class AgregarComputador extends javax.swing.JFrame {
 
         comboTipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        cajaAplicaciones.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -291,25 +286,30 @@ public class AgregarComputador extends javax.swing.JFrame {
                     .addComponent(comboProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cajaAntivirus, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cajaOffice, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cajaDD, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cajaRam, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboSO, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(42, 42, 42))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cajaDD, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cajaRam, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboSO, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cajaAntivirus, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(cajaAplicaciones))))
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
@@ -335,17 +335,18 @@ public class AgregarComputador extends javax.swing.JFrame {
                     .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cajaOffice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
                     .addComponent(comboProcesador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(cajaAntivirus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(cajaPlacaBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(jLabel11))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cajaAplicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cajaPlacaBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel10)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 129, 138)));
@@ -471,10 +472,6 @@ public class AgregarComputador extends javax.swing.JFrame {
         MetodosEstaticos.limitaCajas(cajaDD, evt, 10);
     }//GEN-LAST:event_cajaDDKeyTyped
 
-    private void cajaOfficeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaOfficeKeyTyped
-        MetodosEstaticos.limitaCajas(cajaOffice, evt, 50);
-    }//GEN-LAST:event_cajaOfficeKeyTyped
-
     private void cajaAntivirusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cajaAntivirusKeyTyped
         MetodosEstaticos.limitaCajas(cajaAntivirus, evt, 50);
     }//GEN-LAST:event_cajaAntivirusKeyTyped
@@ -503,7 +500,7 @@ public class AgregarComputador extends javax.swing.JFrame {
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarMouseClicked
         if (cajaPlaca.getText().isEmpty() || cajaPlacaBase.getText().isEmpty() 
                 || cajaRam.getText().isEmpty() || cajaDD.getText().isEmpty()  
-                || cajaOffice.getText().isEmpty() || cajaAntivirus.getText().isEmpty() 
+                || cajaAplicaciones.getText().isEmpty() || cajaAntivirus.getText().isEmpty() 
                 || cajaResponsable.getText().isEmpty() || cajaUbicacion.getText().isEmpty() 
                 || cajaObservaciones.getText().isEmpty() || comboTipo.getSelectedIndex() == 0 
                 || comboMarcaModelo.getSelectedIndex() == 0 || comboProcesador.getSelectedIndex() == 0
@@ -520,7 +517,7 @@ public class AgregarComputador extends javax.swing.JFrame {
                     cajaRam.getText().trim().toUpperCase(), 
                     cajaDD.getText().trim().toUpperCase(), 
                     comboSO.getSelectedItem().toString(), 
-                    cajaOffice.getText().trim(), 
+                    cajaAplicaciones.getText().trim(), 
                     cajaAntivirus.getText().trim(), 
                     cajaResponsable.getText().trim(), 
                     cajaUbicacion.getText().trim(), 
@@ -544,7 +541,7 @@ public class AgregarComputador extends javax.swing.JFrame {
         cajaRam.setText("");
         cajaDD.setText("");
         comboSO.setSelectedIndex(0);
-        cajaOffice.setText("");
+        cajaAplicaciones.setText("");
         cajaAntivirus.setText("");
         cajaResponsable.setText("");
         cajaUbicacion.setText("");
@@ -608,9 +605,9 @@ public class AgregarComputador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel areaTrabajo;
     private javax.swing.JTextField cajaAntivirus;
+    private javax.swing.JTextField cajaAplicaciones;
     private javax.swing.JTextField cajaDD;
     private javax.swing.JTextArea cajaObservaciones;
-    private javax.swing.JTextField cajaOffice;
     private javax.swing.JTextField cajaPlaca;
     private javax.swing.JTextField cajaPlacaBase;
     private javax.swing.JTextField cajaRam;

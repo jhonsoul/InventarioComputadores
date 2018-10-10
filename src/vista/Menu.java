@@ -25,6 +25,7 @@ public class Menu extends javax.swing.JFrame {
         color.BotonTitulo(titulos1);
         color.BotonMenu(equipos);
         color.BotonMenu(componentes);
+        color.BotonMenu(informacion);
         color.BotonMenu(salir);
     }
 
@@ -43,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         equipos = new javax.swing.JLabel();
         componentes = new javax.swing.JLabel();
         salir = new javax.swing.JLabel();
+        informacion = new javax.swing.JLabel();
         areaTrabajo = new javax.swing.JPanel();
         titulos1 = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
@@ -108,6 +110,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        informacion.setBackground(new java.awt.Color(40, 49, 73));
+        informacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        informacion.setForeground(new java.awt.Color(255, 255, 255));
+        informacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        informacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icons8_Shutdown_32px_1.png"))); // NOI18N
+        informacion.setText("Información");
+        informacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        informacion.setIconTextGap(20);
+        informacion.setOpaque(true);
+        informacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                informacionMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
@@ -117,7 +134,8 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(equipos, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(componentes, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(titulos, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(titulos, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
@@ -131,6 +149,8 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(componentes, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -203,6 +223,10 @@ public class Menu extends javax.swing.JFrame {
         menuOpciones.setVisible(true);
     }//GEN-LAST:event_componentesMouseClicked
 
+    private void informacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_informacionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_informacionMouseClicked
+
     private void iniciadorVentanas(){
         menuOpciones = new MenuOpciones();
     }
@@ -246,6 +270,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel areaTrabajo;
     private javax.swing.JLabel componentes;
     private javax.swing.JLabel equipos;
+    private javax.swing.JLabel informacion;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelPrincipal;

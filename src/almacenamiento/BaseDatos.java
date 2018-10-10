@@ -17,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import procesos.Computadores;
-import procesos.sqlsVisualizacion;
 
 
 /**
@@ -93,20 +92,18 @@ public class BaseDatos {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 pc.setPlaca(rs.getString(1));
-                pc.setMarcaModelo(recuperaTextos("Marca y Modelo", rs.getInt(2)));
+                pc.setMarcaModelo(rs.getString(2));
                 pc.setTipo(rs.getString(3));
-                pc.setProcesador(recuperaTextos("Procesador", rs.getInt(4)));
+                pc.setProcesador(rs.getString(4));
                 pc.setPlacaBase(rs.getString(5));
                 pc.setMemoriaRam(rs.getString(6));
                 pc.setDiscoDuro(rs.getString(7));
-                pc.setSistemaOperativo(recuperaTextos("Sistema operativo", rs.getInt(8)));
+                pc.setSistemaOperativo(rs.getString(8));
                 pc.setOffice(rs.getString(9));
                 pc.setAntivirus(rs.getString(10));
                 pc.setResponsable(rs.getString(11));
                 pc.setUbicacion(rs.getString(12));
                 pc.setObservaciones(rs.getString(13));
-                pc.setInactivo(rs.getBoolean(14));
-                
             }
             stm.close();
             rs.close();
@@ -116,23 +113,7 @@ public class BaseDatos {
         }
         return pc;
     }
-    
-    private String recuperaTextos(String componente, int id){
-        String nombre = "";
-        try {
-            Statement st = conecta().createStatement();
-            ResultSet r = st.executeQuery(new sqlsVisualizacion().constructorSQLs(componente, "Recuperar Nombre",id));
-            if (r.next()) {
-                nombre = r.getString(1);
-            }
-            st.close();
-            r.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return nombre;
-    }
-    
+        
     public DefaultTableModel setTablaComputadores(String sql){
         DefaultTableModel modelo = new DefaultTableModel(
                 new String[]{"ID PLACA",
@@ -155,21 +136,8 @@ public class BaseDatos {
             int numberOfColumns = meta.getColumnCount();
             while (rs.next()){
                 Object [] rowData = new Object[numberOfColumns];
-                for (int i = 0; i < (rowData.length -1); ++i){
-                    switch (i) {
-                        case 1:
-                            rowData[i] = recuperaTextos("Marca y Modelo", rs.getInt(i+1));
-                            break;
-                        case 3:
-                            rowData[i] = recuperaTextos("Procesador", rs.getInt(i+1));
-                            break;
-                        case 7:
-                            rowData[i] = recuperaTextos("Sistema operativo", rs.getInt(i+1));
-                            break;
-                        default:
-                            rowData[i] = rs.getObject(i+1);
-                            break;
-                    }
+                for (int i = 0; i < rowData.length; ++i){
+                    rowData[i] = rs.getObject(i + 1);
                 }
                 modelo.addRow(rowData);
             }

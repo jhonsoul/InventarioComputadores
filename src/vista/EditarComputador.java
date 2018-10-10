@@ -534,7 +534,7 @@ public class EditarComputador extends javax.swing.JFrame {
         if (comboPlacas.getSelectedIndex() <= 0) {
             JOptionPane.showMessageDialog(null, "El campo placa deben tener datos", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
-            Computadores pc = new BaseDatos().cargaComputador(new sqlsVisualizacion().sqlSelecionaComputadores(comboPlacas.getSelectedItem().toString()));
+            Computadores pc = new BaseDatos().cargaComputador(new sqlsVisualizacion().sqlPCs("PC", comboPlacas.getSelectedItem().toString()));
             comboMarcaModelo.setSelectedItem(pc.getMarcaModelo());
             comboTipo.setSelectedItem(pc.getTipo());
             comboProcesador.setSelectedItem(pc.getProcesador());

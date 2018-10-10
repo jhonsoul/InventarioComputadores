@@ -248,7 +248,7 @@ public class ListaComputadores extends javax.swing.JFrame {
         if (comboPlacas.getSelectedIndex() <= 0) {
             JOptionPane.showMessageDialog(null, "El campo placa deben tener datos", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
-            Computadores pc = new BaseDatos().cargaComputador(new sqlsVisualizacion().sqlSelecionaComputadores(comboPlacas.getSelectedItem().toString()));
+            Computadores pc = new BaseDatos().cargaComputador(new sqlsVisualizacion().sqlPCs("PC", comboPlacas.getSelectedItem().toString()));
             Impresiones imp = new Impresiones();
             imp.construirDocumento(pc);
             imp.imprimir();
@@ -257,7 +257,7 @@ public class ListaComputadores extends javax.swing.JFrame {
 
     public void iniciadorVentanas(){
         menu = new Menu();
-        listaTabla.setModel(new BaseDatos().setTablaComputadores(new sqlsVisualizacion().sqlTodosComputadores()));
+        listaTabla.setModel(new BaseDatos().setTablaComputadores(new sqlsVisualizacion().sqlPCs("Todos", null)));
         TableColumnModel col = listaTabla.getColumnModel();
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(javax.swing.JLabel.CENTER);

@@ -60,13 +60,18 @@ public class sqlsVisualizacion {
         return sql;
     }
 
-    public String sqlSelecionaComputadores(String id){
-        String sql = "SELECT * FROM `computadores` WHERE `id_placa` = \"" + id + "\"";
-        return sql;
-    }
-    
-    public String sqlTodosComputadores(){
-        String sql = "SELECT * FROM `computadores` WHERE `activo_pc` = " + true + "";
+    public String sqlPCs(String tipo, String id){
+        String sql =    "SELECT c.id_placa, mm.marca_modelo, c.tipo, p.procesador, c.serial_placa, c.memoria_ram, c.disco_duro, so.sistema_operativo, c.tipo_office, c.antivirus, c.responsable, c.ubicacion, c.observaciones " +
+                        "FROM `computadores` c " +
+                        "INNER JOIN `marca_modelos` mm ON mm.id_marca_modelo = c.fk_id_marca_modelo " +
+                        "INNER JOIN `procesadores` p ON p.id_procesador = c.fk_id_procesador " +
+                        "INNER JOIN `sistemas_operativos` so ON so.id_sistema_operativo = c.fk_id_sistema_operativo ";
+        
+        if (tipo.equalsIgnoreCase("PC")) {
+            sql += "WHERE `id_placa` = \"" + id + "\"";
+        } else {
+            sql += "WHERE `activo_pc` = 1";
+        }
         return sql;
     }
 }

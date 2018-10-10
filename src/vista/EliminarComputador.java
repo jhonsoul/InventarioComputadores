@@ -458,7 +458,7 @@ public class EliminarComputador extends javax.swing.JFrame {
         if (comboPlacas.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "El campo placa deben tener datos", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
-            Computadores pc = new BaseDatos().cargaComputador(new sqlsVisualizacion().sqlSelecionaComputadores(comboPlacas.getSelectedItem().toString()));
+            Computadores pc = new BaseDatos().cargaComputador(new sqlsVisualizacion().sqlPCs("PC", comboPlacas.getSelectedItem().toString()));
             textoMM.setText(pc.getMarcaModelo());
             textoTi.setText(pc.getTipo());
             textoPro.setText(pc.getProcesador());
