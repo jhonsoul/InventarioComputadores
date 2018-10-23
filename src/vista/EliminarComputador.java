@@ -479,15 +479,19 @@ public class EliminarComputador extends javax.swing.JFrame {
         if (textoMM.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "El computador no a sido buscado para ser eliminado", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (JOptionPane.showConfirmDialog(null, "Confirmar borrado del computador") == 0) {
-                String sql = new sqlsGuardado().sqlEliminar(comboPlacas.getSelectedItem().toString(), "PC");
-                String resultado = new BaseDatos().guardarInformacion(sql);
-                JOptionPane.showMessageDialog(null, resultado);
-                if (resultado.startsWith("El")) {
-                    this.setVisible(false);
-                    menu.setVisible(true); 
+            String msj = "";
+            msj = JOptionPane.showInputDialog("Ingrese la razón por la que sera eliminado el computador");
+            if (!msj.equals("")) {
+                if (JOptionPane.showConfirmDialog(null, "Confirmar borrado del computador") == 0) {
+                    String sql = new sqlsGuardado().sqlEliminar(comboPlacas.getSelectedItem().toString(), "PC", msj);
+                    String resultado = new BaseDatos().guardarInformacion(sql);
+                    JOptionPane.showMessageDialog(null, resultado);
+                    if (resultado.startsWith("El")) {
+                        this.setVisible(false);
+                        menu.setVisible(true); 
+                    }
+                    JOptionPane.showMessageDialog(null, resultado);
                 }
-                JOptionPane.showMessageDialog(null, resultado);
             }
         }
     }//GEN-LAST:event_BorrarMouseClicked

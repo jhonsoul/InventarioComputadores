@@ -296,7 +296,7 @@ public class EliminarComponente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Se debe seleccionar un componente para ser eliminado", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
             if (JOptionPane.showConfirmDialog(null, "Confirmar la eliminación del componente.") == 0) {
-                String sql = new sqlsGuardado().sqlEliminar(comboComponenteEliminar.getSelectedItem().toString(), comboComponentes.getSelectedItem().toString());
+                String sql = new sqlsGuardado().sqlEliminar(comboComponenteEliminar.getSelectedItem().toString(), comboComponentes.getSelectedItem().toString(), "Ninguna");
                 String resultado = new BaseDatos().guardarInformacion(sql);
                 JOptionPane.showMessageDialog(null, resultado);
                 if (resultado.startsWith("El")) {

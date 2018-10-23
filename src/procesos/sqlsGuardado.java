@@ -77,14 +77,15 @@ public class sqlsGuardado {
         return sql;
     }
     
-    public String sqlEliminar(String identificador, String tipo){
+    public String sqlEliminar(String identificador, String tipo, String razon){
         Date date = new Date();
         DateFormat fechahora = new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss");
         String nuevoID = "DEL" + fechahora.format(date);
         String sql = "UPDATE ";
+        razon = "===" + razon + "===";
         switch(tipo) {
             case "PC":
-                sql += "`computadores` SET `id_placa` = \"" + nuevoID + "\", `activo_pc`= " + false + " WHERE `id_placa`";
+                sql += "`computadores` SET `id_placa` = \"" + nuevoID + "\", `observaciones` = \"" + razon + "\", `activo_pc`= " + false + " WHERE `id_placa`";
                 break;
             case "Marca y Modelo":
                 sql += "`marca_modelos` SET `activo_marca_modelo`= " + false + " WHERE `marca_modelo`";
