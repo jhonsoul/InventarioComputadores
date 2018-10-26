@@ -13,7 +13,7 @@ import java.awt.Rectangle;
 import javax.swing.JPanel;
 
 /**
- *
+ * Se encarga de generar un degradado en los paneles.
  * @author Jhon
  */
 public class ColorPaneles extends JPanel{
@@ -21,6 +21,10 @@ public class ColorPaneles extends JPanel{
     private Color colorUno;
     private Color colorDos;
     
+    /**
+     * Método constructor que carga los colores y el panel a modificar.
+     * @param panel seria el panel en donde se aplicara el degradado.
+     */
     public ColorPaneles(JPanel panel) {
         this.colorUno = Color.decode("#0960bd");
         this.colorDos = Color.decode("#00204a");
@@ -29,7 +33,10 @@ public class ColorPaneles extends JPanel{
     }
     
     
-    
+    /**
+     * Metodo encargado de la generación del degradado.
+     * @param g es necesario para generar el degradado en el panel.
+     */
     @Override
     public void paint(Graphics g) {    
         Graphics2D g2 = (Graphics2D) g.create();

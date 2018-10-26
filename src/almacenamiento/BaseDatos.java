@@ -20,13 +20,17 @@ import procesos.Computadores;
 
 
 /**
- *
+ * Clase encargada de la comunicación entre la aplicación y la base de datos.
  * @author Jhon
  */
 public class BaseDatos {
     
     private Connection con = null; 
-            
+    
+    /**
+     * Método que genera la conexión con la base de datos.
+     * @return Regresa una conexión activa con la base de datos. 
+     */
     public Connection conecta(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -37,6 +41,11 @@ public class BaseDatos {
         return con;
     }
     
+    /**
+     * Método encargado de guarda la información en la base de datos
+     * @param sql Contiene la instrucción SQL para realizar el guardado.
+     * @return Regresa una cadena de caracteres informacion si se guardo de forma correcta o no.
+     */
     public String guardarInformacion(String sql){
         String cambio = "Se presento un error y la información no se guardo";
         try {
@@ -51,6 +60,11 @@ public class BaseDatos {
         return cambio;
     }
     
+    /**
+     * Metodo que entrega una lista de componentes.
+     * @param sql Parametro correspondiente para generar la lista de componentes
+     * @return Regresa la lista de componentes.
+     */
     public LinkedList listarComponentes(String sql){
         LinkedList lista = new LinkedList();
         try {
@@ -68,6 +82,11 @@ public class BaseDatos {
         return lista;
     }
     
+    /**
+     * Método utilizado para encontrar IDs dentro de la base de datos.
+     * @param sql Instrucción SQL para realizar la consulta.
+     * @return Regresa la id correspondiente a lo que se esta buscando.
+     */
     public int consultaIDs(String sql){
         int id = 0;
         try {
@@ -85,6 +104,11 @@ public class BaseDatos {
         return id;
     }
     
+    /**
+     * Carda la informacion de un computador.
+     * @param sql Instrucción SQL para realizar la consulta.
+     * @return Regresa un objeto computador con información de la base de dato.
+     */
     public Computadores cargaComputador(String sql){
         Computadores pc = new Computadores();
         try {
@@ -99,7 +123,7 @@ public class BaseDatos {
                 pc.setMemoriaRam(rs.getString(6));
                 pc.setDiscoDuro(rs.getString(7));
                 pc.setSistemaOperativo(rs.getString(8));
-                pc.setOffice(rs.getString(9));
+                pc.setSoftware(rs.getString(9));
                 pc.setAntivirus(rs.getString(10));
                 pc.setResponsable(rs.getString(11));
                 pc.setUbicacion(rs.getString(12));
@@ -113,7 +137,11 @@ public class BaseDatos {
         }
         return pc;
     }
-        
+    /**
+     * Método que genera un modelo de tabla para ser listados en la correspondiente vista.
+     * @param sql Instrucción SQL para realizar la consulta.
+     * @return Regresa el modelo de tabla requerido para visualizar todos los computadores.
+     */    
     public DefaultTableModel setTablaComputadores(String sql){
         DefaultTableModel modelo = new DefaultTableModel(
                 new String[]{"ID PLACA",

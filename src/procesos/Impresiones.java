@@ -21,7 +21,7 @@ import javax.print.attribute.PrintRequestAttributeSet;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Clase encargada de generar las impresiones.
  * @author Jhon
  */
 public class Impresiones {
@@ -31,6 +31,9 @@ public class Impresiones {
     public Impresiones() {
     }
     
+    /**
+     * Método que genera la impresión del documento
+     */
     public void imprimir() {
         DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
         PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
@@ -47,6 +50,10 @@ public class Impresiones {
         }
     }
     
+    /**
+     * Se encargado de la construcción del documento escrito con los datos de pc.
+     * @param pc es un objeto que contiene todos los datos del computador.
+     */
     public void construirDocumento(Computadores pc) {
         String documento;
         Date date = new Date();
@@ -59,7 +66,7 @@ public class Impresiones {
         documento += "Memoria ram: " + pc.getMemoriaRam() + "\n";
         documento += "Disco duro: " + pc.getDiscoDuro() + "\n";
         documento += "Sistema operativo: " + pc.getSistemaOperativo() + "\n";
-        documento += "Software office: " + pc.getOffice() + "\n";
+        documento += "Software office: " + pc.getSoftware() + "\n";
         documento += "Antivirus: " + pc.getAntivirus() + "\n\n";
         documento += "El responsable del equipo: " + pc.getResponsable()+ "\n";
         documento += "Ubicación: " + pc.getUbicacion()+ "\n";

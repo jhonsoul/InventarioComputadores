@@ -6,11 +6,18 @@
 package procesos;
 
 /**
- *
+ * Clase encargada de generar los SQLs para la visualización de equipos o componentes.
  * @author Jhon
  */
 public class sqlsVisualizacion {
     
+    /**
+     * Método que realiza la consulta de componentes o computadores de forma individual.
+     * @param componente Contiene el componente que se necesita visualizar.
+     * @param accion Con este parámetro se especifica lo que se quiere hacer (listar, recuperar un ID o recuperar un nombre)
+     * @param identificador Es el filtro identificador que se utiliza para encontrar el componente o cumputador.
+     * @return Devuelve un SQL correspondiente a cada caso.
+     */
     public String constructorSQLs(String componente, String accion, Object identificador){
         String sql = "SELECT ";
          switch(componente) {
@@ -59,7 +66,13 @@ public class sqlsVisualizacion {
         }
         return sql;
     }
-
+    
+    /**
+     * Método que genera el SQL donde esta toda la información del computador
+     * @param tipo Este parametro ayuda a mostrar ya sea un computador o pueda genera una lista de todos los computadores en la base de datos.
+     * @param id Si se necesita los datos de un solo computadores, se le agrega al final el identificador del computador.
+     * @return Devuelve un SQL correspondiente a cada caso.
+     */
     public String sqlPCs(String tipo, String id){
         String sql =    "SELECT c.id_placa, mm.marca_modelo, c.tipo, p.procesador, c.serial_placa, c.memoria_ram, c.disco_duro, so.sistema_operativo, c.tipo_office, c.antivirus, c.responsable, c.ubicacion, c.observaciones " +
                         "FROM `computadores` c " +

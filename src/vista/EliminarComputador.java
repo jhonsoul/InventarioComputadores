@@ -466,7 +466,7 @@ public class EliminarComputador extends javax.swing.JFrame {
             textoMR.setText(pc.getMemoriaRam());
             textoDD.setText(pc.getDiscoDuro());
             textoSO.setText(pc.getSistemaOperativo());
-            textoOf.setText(pc.getOffice());
+            textoOf.setText(pc.getSoftware());
             textoAn.setText(pc.getAntivirus());
             textoR.setText(pc.getResponsable());
             textoU.setText(pc.getUbicacion());

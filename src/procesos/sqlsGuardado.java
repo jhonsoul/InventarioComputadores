@@ -11,11 +11,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ * Clase para generar los SQLs encargados para guardar en la base de datos.
  * @author Jhon
  */
 public class sqlsGuardado {
     
+    /**
+     * Encargado en la inserción de informacion en la base de datos.
+     * @param componente identifica que componente se le agragara información.
+     * @param referencia Contiene la información que se le agregara a la base de datos.
+     * @return Entrega una cadena de texto conteniendo la instrucción SQL para la inserción en la base de datos.
+     */
     public String sqlInsertaComponentes(String componente, String referencia){
         String sql = "INSERT INTO ";
         switch(componente) {
@@ -33,6 +39,11 @@ public class sqlsGuardado {
         return sql;
     }
     
+    /**
+     * Genera la instricción SQL para inserta un computador
+     * @param c Contiene toda la información del computador a crear en la base de datos.
+     * @return Entrega una cadena de texto conteniendo la instrucción SQL para la inserción del computador en la base de datos.
+     */
     public String sqlInsertaComputadores(Computadores c){
         int idMarcaModelo = new BaseDatos().consultaIDs(new sqlsVisualizacion().constructorSQLs("Marca y Modelo", "recuperar ID", c.getMarcaModelo()));
         int idProcesador = new BaseDatos().consultaIDs(new sqlsVisualizacion().constructorSQLs("Procesador", "recuperar ID", c.getProcesador()));
@@ -47,7 +58,7 @@ public class sqlsGuardado {
                 +"\",\""+ c.getMemoriaRam()
                 +"\",\""+ c.getDiscoDuro()
                 +"\",\""+ idSistemaOperativo 
-                +"\",\""+ c.getOffice()
+                +"\",\""+ c.getSoftware()
                 +"\",\""+ c.getAntivirus()
                 +"\",\""+ c.getResponsable()
                 +"\",\""+ c.getUbicacion()
@@ -56,6 +67,11 @@ public class sqlsGuardado {
         return sql;
     }
     
+    /**
+     * Método utilizado para actualizar el computador que se encuentra en la base de datos.
+     * @param c Contiene toda la información del computador a crear en la base de datos.
+     * @return Entrega una cadena de texto conteniendo la instrucción SQL para la actualizar el computador en la base de datos.
+     */
     public String sqlActualizaComputador(Computadores c){
         int idMarcaModelo = new BaseDatos().consultaIDs(new sqlsVisualizacion().constructorSQLs("Marca y Modelo", "recuperar ID", c.getMarcaModelo()));
         int idProcesador = new BaseDatos().consultaIDs(new sqlsVisualizacion().constructorSQLs("Procesador", "recuperar ID", c.getProcesador()));
@@ -68,7 +84,7 @@ public class sqlsGuardado {
                 + "`memoria_ram`=\""+ c.getMemoriaRam()+ "\","
                 + "`disco_duro`=\""+ c.getDiscoDuro() + "\","
                 + "`fk_id_sistema_operativo`=\""+ idSistemaOperativo + "\","
-                + "`tipo_office`=\""+ c.getOffice() + "\","
+                + "`tipo_office`=\""+ c.getSoftware() + "\","
                 + "`antivirus`=\""+ c.getAntivirus() + "\","
                 + "`responsable`=\""+ c.getResponsable() + "\","
                 + "`ubicacion`=\""+ c.getUbicacion() + "\","
@@ -77,6 +93,13 @@ public class sqlsGuardado {
         return sql;
     }
     
+    /**
+     * Método que entrega la sql de eliminación de componentes o cumputadores.
+     * @param identificador Es la referencia a buscar dentro de la base de datos para ser eliminado.
+     * @param tipo Le da información de lo que se quiere eliminar.
+     * @param razon es utilizado para dar una razon al computador a eliminar.
+     * @return Entrega una cadena de texto conteniendo la instrucción SQL para eliminar el computador en la base de datos.
+     */
     public String sqlEliminar(String identificador, String tipo, String razon){
         Date date = new Date();
         DateFormat fechahora = new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss");

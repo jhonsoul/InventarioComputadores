@@ -529,7 +529,7 @@ public class EditarComputador extends javax.swing.JFrame {
             cajaRam.setText(pc.getMemoriaRam());
             cajaDD.setText(pc.getDiscoDuro());
             comboSO.setSelectedItem(pc.getSistemaOperativo());
-            cajaAplicaciones.setText(pc.getOffice());
+            cajaAplicaciones.setText(pc.getSoftware());
             cajaAntivirus.setText(pc.getAntivirus());
             cajaResponsable.setText(pc.getResponsable());
             cajaUbicacion.setText(pc.getUbicacion());

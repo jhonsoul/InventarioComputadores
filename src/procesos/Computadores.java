@@ -19,7 +19,7 @@ public class Computadores {
     private String memoriaRam;
     private String discoDuro;
     private String sistemaOperativo;
-    private String office;
+    private String software;
     private String antivirus;
     private String responsable;
     private String ubicacion;
@@ -29,7 +29,7 @@ public class Computadores {
     public Computadores() {
     }
 
-    public Computadores(String placa, String marcaModelo, String tipo, String procesador, String placaBase, String memoriaRam, String discoDuro, String sistemaOperativo, String office, String antivirus, String responsable, String ubicacion, String observaciones, boolean inactivo) {
+    public Computadores(String placa, String marcaModelo, String tipo, String procesador, String placaBase, String memoriaRam, String discoDuro, String sistemaOperativo, String software, String antivirus, String responsable, String ubicacion, String observaciones, boolean inactivo) {
         this.placa = placa;
         this.marcaModelo = marcaModelo;
         this.tipo = tipo;
@@ -38,7 +38,7 @@ public class Computadores {
         this.memoriaRam = memoriaRam;
         this.discoDuro = discoDuro;
         this.sistemaOperativo = sistemaOperativo;
-        this.office = office;
+        this.software = software;
         this.antivirus = antivirus;
         this.responsable = responsable;
         this.ubicacion = ubicacion;
@@ -110,12 +110,12 @@ public class Computadores {
         this.sistemaOperativo = sistemaOperativo;
     }
 
-    public String getOffice() {
-        return office;
+    public String getSoftware() {
+        return software;
     }
 
-    public void setOffice(String office) {
-        this.office = office;
+    public void setSoftware(String software) {
+        this.software = software;
     }
 
     public String getAntivirus() {
