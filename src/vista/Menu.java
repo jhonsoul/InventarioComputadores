@@ -5,8 +5,10 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
 import procesos.ColorBotones;
 import procesos.ColorPaneles;
+import procesos.MetodosEstaticos;
 
 /**
  *
@@ -160,7 +162,7 @@ public class Menu extends javax.swing.JFrame {
         titulos1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         titulos1.setForeground(new java.awt.Color(255, 255, 255));
         titulos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulos1.setText("INVENTARIO INFORMATICO");
+        titulos1.setText("INVECOM");
         titulos1.setOpaque(true);
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/computer.png"))); // NOI18N
@@ -224,7 +226,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_componentesMouseClicked
 
     private void informacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_informacionMouseClicked
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, MetodosEstaticos.informacion(), "Información de la aplicación", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_informacionMouseClicked
 
     private void iniciadorVentanas(){

@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import procesos.Computadores;
 
@@ -36,7 +37,9 @@ public class BaseDatos {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventario", "root", "");
         } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "El programa no tiene acceso a la base de datos", "Se presento un problema", JOptionPane.ERROR_MESSAGE);
             System.err.println(e);
+            System.exit(0);
         }
         return con;
     }

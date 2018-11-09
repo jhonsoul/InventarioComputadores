@@ -279,43 +279,40 @@ public class MenuOpciones extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarMouseClicked
 
     private void irProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_irProcesoMouseClicked
+
         Connection con = new BaseDatos().conecta();
-        if (con == null) {
-            JOptionPane.showMessageDialog(null, "El programa no tiene acceso a la base de datos", "Se presento un problema", JOptionPane.ERROR_MESSAGE);
-        } else {
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(MenuOpciones.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (radioCrear.isSelected() || radioEliminar.isSelected() || radioActualizar.isSelected() || radioVisualizar.isSelected()){
-                this.setVisible(false);
-                if (radioCrear.isSelected()) {
-                    if (equipos.getText().equals("Equipo de computo")) {
-                        creaCompu.iniciadorVentanas();
-                        creaCompu.setVisible(true);
-                    } else {
-                        agregaComponente.iniciadorVentanas();
-                        agregaComponente.setVisible(true);
-                    }
-                } else if (radioEliminar.isSelected()) {
-                    if (equipos.getText().equals("Equipo de computo")) {
-                        eliminaCompu.iniciadorVentanas();
-                        eliminaCompu.setVisible(true);
-                    } else {
-                        eliminaComponente.iniciadorVentanas();
-                        eliminaComponente.setVisible(true);
-                    }
-                } else if (radioActualizar.isSelected()) {
-                    editaCompu.iniciadorVentanas();
-                    editaCompu.setVisible(true);
+        try {
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuOpciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (radioCrear.isSelected() || radioEliminar.isSelected() || radioActualizar.isSelected() || radioVisualizar.isSelected()){
+        this.setVisible(false);
+            if (radioCrear.isSelected()) {
+                if (equipos.getText().equals("Equipo de computo")) {
+                    creaCompu.iniciadorVentanas();
+                    creaCompu.setVisible(true);
                 } else {
-                    listaCompu.iniciadorVentanas();
-                    listaCompu.setVisible(true);
+                    agregaComponente.iniciadorVentanas();
+                    agregaComponente.setVisible(true);
                 }
+            } else if (radioEliminar.isSelected()) {
+                if (equipos.getText().equals("Equipo de computo")) {
+                    eliminaCompu.iniciadorVentanas();
+                    eliminaCompu.setVisible(true);
+                } else {
+                    eliminaComponente.iniciadorVentanas();
+                    eliminaComponente.setVisible(true);
+                }
+            } else if (radioActualizar.isSelected()) {
+                editaCompu.iniciadorVentanas();
+                editaCompu.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(this, "Se debe selecionar una de las opciones.", "Se genero un error", JOptionPane.ERROR_MESSAGE);
+                listaCompu.iniciadorVentanas();
+                listaCompu.setVisible(true);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Se debe selecionar una de las opciones.", "Se genero un error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_irProcesoMouseClicked
 

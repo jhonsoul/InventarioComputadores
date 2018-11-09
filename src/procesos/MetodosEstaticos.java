@@ -44,4 +44,18 @@ public class MetodosEstaticos {
             java.awt.Toolkit.getDefaultToolkit().beep();
         }
     }
+    
+    public static String informacion(){
+        String mensaje = "<html>"
+                + "<body>"
+                + "<center><h1>Invecom</h1>"
+                + "<p>Version: 2.1</p>"
+                + "<br>"
+                + "<p>Iconos de: <a href=\"icons8.com\">icons8.com</a></p>"
+                + "<br>"
+                + "</center>"
+                + "</body>"
+                + "</html>";
+        return mensaje;
+    }
 }
