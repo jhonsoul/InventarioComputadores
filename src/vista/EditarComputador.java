@@ -539,13 +539,20 @@ public class EditarComputador extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarMouseClicked
 
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarMouseClicked
-        if (comboPlacas.getSelectedIndex() == 0 || cajaPlacaBase.getText().isEmpty() 
-                || cajaRam.getText().isEmpty() || cajaDD.getText().isEmpty()  
-                || cajaAplicaciones.getText().isEmpty() || cajaAntivirus.getText().isEmpty() 
-                || cajaResponsable.getText().isEmpty() || cajaUbicacion.getText().isEmpty() 
-                || cajaObservaciones.getText().isEmpty() || comboTipo.getSelectedIndex() == 0 
-                || comboMarcaModelo.getSelectedIndex() == 0 || comboTipo.getSelectedIndex() == 0 
-                || comboProcesador.getSelectedIndex() == 0 || comboPlacas.getSelectedIndex() == 0) {
+        if (comboPlacas.getSelectedIndex() == 0 
+                || MetodosEstaticos.validador(cajaPlacaBase.getText(), 1) 
+                || MetodosEstaticos.validador(cajaRam.getText(), 2) 
+                || MetodosEstaticos.validador(cajaDD.getText(), 2)  
+                || MetodosEstaticos.validador(cajaAplicaciones.getText(), 3) 
+                || MetodosEstaticos.validador(cajaAntivirus.getText(), 2) 
+                || MetodosEstaticos.validador(cajaResponsable.getText(), 4) 
+                || MetodosEstaticos.validador(cajaUbicacion.getText(), 2) 
+                || MetodosEstaticos.validador(cajaObservaciones.getText(), 5) 
+                || comboTipo.getSelectedIndex() == 0 
+                || comboMarcaModelo.getSelectedIndex() == 0 
+                || comboTipo.getSelectedIndex() == 0 
+                || comboProcesador.getSelectedIndex() == 0 
+                || comboPlacas.getSelectedIndex() == 0) {
             
             JOptionPane.showMessageDialog(null, "Todos los campos deben tener datos", "Se presento un error", JOptionPane.ERROR_MESSAGE);
             

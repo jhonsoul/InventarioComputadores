@@ -44,12 +44,15 @@ public class MetodosEstaticos {
             java.awt.Toolkit.getDefaultToolkit().beep();
         }
     }
-    
+    /**
+     * Es una estructura HTML para utilizarla en un mensaje de información
+     * @return Regresa el mesaje construido en el método
+     */
     public static String informacion(){
         String mensaje = "<html>"
                 + "<body>"
                 + "<center><h1>Invecom</h1>"
-                + "<p>Version: 2.1</p>"
+                + "<p>Version: 2.2</p>"
                 + "<br>"
                 + "<p>Iconos de: <a href=\"icons8.com\">icons8.com</a></p>"
                 + "<br>"
@@ -57,5 +60,22 @@ public class MetodosEstaticos {
                 + "</body>"
                 + "</html>";
         return mensaje;
+    }
+    /**
+     * Método que se usa para validar los campos de texto
+     * @param texto Es el texto a validar
+     * @param posicion La posición con el patrón a evaluar
+     * @return Regresa verdadero si esta bien escrito si no falso.
+     */
+    public static boolean validador(String texto, int posicion){
+        boolean correcto = false;
+        texto = texto.toUpperCase().trim();
+        String patrones[] = new String[]{
+            "[A-Z]{1}[0-9]{2,}", "[A-Z0-9-\\s]{4,}", "[A-Z0-9\\s]{4,}", "[A-Z0-9,\\s]{3,}", "[A-Z\\s]{5,}", "[A-Z0-9,\\s-.]{3,}"
+        };
+        if (texto.matches(patrones[posicion])) {
+            correcto = true;
+        }
+        return !correcto;
     }
 }

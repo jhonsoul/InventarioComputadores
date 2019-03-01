@@ -273,7 +273,7 @@ public class AgregarComponente extends javax.swing.JFrame {
     }//GEN-LAST:event_regresarMouseClicked
 
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarMouseClicked
-        if(cajaComponente.getText().isEmpty() || comboComponenteNuevo.getSelectedIndex() == -1) {
+        if(MetodosEstaticos.validador(cajaComponente.getText(), 1) || comboComponenteNuevo.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "Todos los campos deben tener datos", "Se presento un error", JOptionPane.ERROR_MESSAGE);
         } else {
             if (JOptionPane.showConfirmDialog(null, "Confirmar la creación del componente") == 0) {
